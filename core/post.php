@@ -16,6 +16,7 @@
     //construtor com conexao db
     public function __construct($db){
       $this->connection = $db;
+       $this->table = 'post';
     }
 
     public function read(){
