@@ -77,5 +77,20 @@
       printf("ERROR %s. \n", $stmt->error);
       return false;
     }
+
+    public function delete(){
+      $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+
+      $stmt = $this->connection->prepare($query);
+      $this->id = htmlspecialchars(strip_tags($this->id));
+      $stmt->bindParam(':id', $this->id);
+
+      if($stmt->execute()){
+        return true;
+    }
+
+      printf("Error %s. \n", $stmt->error);
+      return false;
+    }
   }
 ?>
